@@ -3,372 +3,477 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lokesh M – Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>Lokesh M – Professional Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0a1628;
-    --navy2: #112240;
-    --gold: #c9a84c;
-    --gold-light: #f0d080;
-    --teal: #64ffda;
-    --white: #e8f0fe;
-    --muted: #8892b0;
-    --card: #162035;
-    --accent: #1e3a5f;
+    --sidebar-bg: #0a192f;
+    --sidebar-text: #e6f1ff;
+    --main-bg: #ffffff;
+    --main-text: #1a202c;
+    --accent-gold: #c9a84c;
+    --accent-blue: #004a99;
+    --muted-text: #4a5568;
+    --border-color: #e2e8f0;
   }
-  
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  
-  @page { size: A4; margin: 0; }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
 
   body {
-    background: #020617;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    background: #f0f0f0;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 30px 0;
+    -webkit-print-color-adjust: exact;
   }
 
-  .page {
+  .resume-container {
     width: 210mm;
-    height: 297mm;
-    background: var(--navy);
+    min-height: 297mm;
+    background: var(--main-bg);
+    display: grid;
+    grid-template-columns: 82mm 1fr; /* Slightly wider sidebar for better font fit */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
     position: relative;
-    overflow: hidden;
+  }
+
+  /* LEFT SIDEBAR */
+  .sidebar {
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 30px 25px;
     display: flex;
     flex-direction: column;
-    padding: 10mm 15mm;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    gap: 12px; 
+    border-right: 2px solid var(--accent-gold);
   }
 
-  .page::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
-    pointer-events: none;
+  .profile-section {
+    text-align: center;
+    margin-bottom: 5px;
   }
 
-  /* HEADER WITH PHOTO */
-  header {
-    display: flex;
-    gap: 8mm;
-    align-items: center;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 6mm;
-    margin-bottom: 6mm;
+  .profile-img-container {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-gold);
+    padding: 3px;
+    background: linear-gradient(135deg, var(--accent-gold), #fff);
   }
 
-  .profile-photo-container {
-    width: 34mm;
-    height: 34mm;
-    flex-shrink: 0;
-    border: 2px solid var(--gold);
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(201,168,76,0.15);
-  }
-
-  .profile-photo-container img {
+  .profile-img-container img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
-    object-position: top;
+    background: #fff;
   }
 
-  .header-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 3mm;
-  }
-
-  .header-info h1 {
+  .sidebar-name {
     font-family: 'Playfair Display', serif;
-    font-size: 30pt;
+    font-size: 28px; /* Increased */
     font-weight: 900;
-    line-height: 1;
-    margin-bottom: 1.5mm;
-    color: var(--white);
-  }
-  .header-info h1 span { color: var(--gold); }
-  .header-info .sub-text {
-    font-family: 'Space Mono', monospace;
-    font-size: 8.5pt;
-    color: var(--teal);
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1.2;
   }
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 1.5mm 6mm;
-    font-size: 8.5pt;
-    color: var(--muted);
+  .sidebar-name span { color: var(--accent-gold); }
+
+  .sidebar-sub {
+    font-size: 11px; /* Increased */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+    margin-top: 5px;
+    font-weight: 700;
   }
+
+  .sidebar-title {
+    font-size: 14px; /* Increased */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+    border-bottom: 2px solid rgba(201, 168, 76, 0.4);
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+    font-weight: 800;
+    margin-top: 15px;
+  }
+
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 2mm;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 12.5px; /* Increased from 11px */
   }
-  .contact-item a { color: var(--muted); text-decoration: none; transition: 0.2s; }
-  .contact-item a:hover { color: var(--gold); }
-  .contact-icon { color: var(--gold); font-size: 9pt; }
 
-  /* SECTION DEFAULTS */
-  section { margin-bottom: 5.5mm; }
-  .section-title {
-    font-family: 'Space Mono', monospace;
-    font-size: 8.5pt;
-    color: var(--gold);
-    letter-spacing: 3px;
+  .contact-item span {
+    color: var(--accent-gold);
+    font-size: 15px;
+    width: 20px;
+  }
+
+  .contact-item a {
+    color: var(--sidebar-text);
+    text-decoration: none;
+  }
+
+  /* TECHNICAL SKILLS SECTION */
+  .skill-group {
+    margin-bottom: 15px;
+  }
+
+  .skill-label {
+    font-size: 13.5px; /* Increased */
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+    display: inline-block;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 3mm;
-    margin-bottom: 3.5mm;
-  }
-  .section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, rgba(201,168,76,0.4), transparent);
+    text-decoration: underline; /* Underline added */
+    text-underline-offset: 4px;
   }
 
-  .summary-text {
-    font-size: 9pt;
-    line-height: 1.5;
-    color: var(--muted);
-    font-style: italic;
-    border-left: 2px solid var(--gold);
-    padding-left: 4mm;
+  .skill-list {
+    list-style: none;
+    padding-left: 2px;
   }
 
-  .item { margin-bottom: 3.5mm; }
+  .skill-list li {
+    font-size: 13px; /* Increased from 12px */
+    color: #fff;
+    margin-bottom: 5px;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .skill-list li::before {
+    content: "•";
+    color: var(--accent-gold);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  /* MAIN CONTENT */
+  .main-content {
+    background: var(--main-bg);
+    padding: 35px 35px 50px;
+    color: var(--main-text);
+  }
+
+  .header-main h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--sidebar-bg);
+    margin-bottom: 4px;
+  }
+
+  .header-main h1 span { color: var(--accent-gold); }
+
+  .header-main .subtitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+  }
+
+  .section {
+    margin-bottom: 22px;
+  }
+
+  .section-heading {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--sidebar-bg);
+    border-left: 4px solid var(--accent-gold);
+    padding-left: 10px;
+    margin-bottom: 12px;
+    letter-spacing: 1.2px;
+    background: #f8f9fa;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .summary-p {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--muted-text);
+    text-align: justify;
+  }
+
+  .item-box {
+    margin-bottom: 12px;
+  }
+
   .item-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 1.5mm;
+    margin-bottom: 2px;
   }
-  .item-title { font-weight: 600; font-size: 10.5pt; color: var(--white); }
-  .item-subtitle { color: var(--gold); font-size: 9pt; font-weight: 500; }
-  .item-meta { font-family: 'Space Mono', monospace; font-size: 7.5pt; color: var(--teal); }
-  .item-desc { font-size: 8.8pt; line-height: 1.45; color: var(--muted); margin-top: 1.5mm; }
-  
-  ul.bullet-list { list-style: none; margin-top: 1.5mm; }
-  ul.bullet-list li {
-    font-size: 8.8pt;
-    color: var(--muted);
-    padding-left: 4mm;
-    position: relative;
-    margin-bottom: 0.8mm;
+
+  .item-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--main-text);
   }
-  ul.bullet-list li::before {
-    content: '▸';
-    color: var(--teal);
+
+  .item-date {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--accent-blue);
+  }
+
+  .item-sub {
+    font-size: 12.5px;
+    color: var(--muted-text);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .bullet-list {
+    padding-left: 15px;
+  }
+
+  .bullet-list li {
+    font-size: 12px;
+    color: var(--muted-text);
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+
+  .cert-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cert-item-full {
+    font-size: 11.5px;
+    color: var(--muted-text);
+    padding: 8px 12px;
+    background: #fcfcfc;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-blue);
+    line-height: 1.5;
+  }
+
+  .cert-item-full strong {
+    color: var(--main-text);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .footer {
     position: absolute;
-    left: 0;
-  }
-
-  .skills-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3.5mm 10mm;
-    background: var(--navy2);
-    padding: 3.5mm 5mm;
-    border-radius: 4px;
-    border: 1px solid var(--accent);
-  }
-  .skill-row { display: flex; align-items: baseline; gap: 3mm; }
-  .skill-label { font-family: 'Space Mono', monospace; font-size: 7.5pt; color: var(--teal); min-width: 60px; }
-  .skill-values { font-size: 8.5pt; color: var(--white); }
-
-  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 6mm; }
-  .cert-item { font-size: 8.5pt; color: var(--muted); }
-  .cert-item b { color: var(--white); font-weight: 600; }
-
-  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
-  .edu-box {
-    background: var(--card);
-    padding: 3.5mm;
-    border-radius: 4px;
-    border-left: 3px solid var(--gold);
-  }
-
-  footer {
-    margin-top: auto;
-    padding-top: 4mm;
-    border-top: 1px solid var(--accent);
+    bottom: 0;
+    width: 100%;
+    padding: 12px 35px;
+    background: #f8f9fa;
+    border-top: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
-    font-family: 'Space Mono', monospace;
-    font-size: 7pt;
-    color: var(--accent);
-  }
-
-  @media print {
-    body { padding: 0; background: none; }
-    .page { box-shadow: none; }
+    font-size: 10px;
+    color: var(--muted-text);
+    font-weight: 600;
   }
 </style>
 </head>
 <body>
-<div class="page">
-  <!-- HEADER -->
-  <header>
-    <div class="profile-photo-container">
-      <img src="IMG-20251109-WA0011.jpg" alt="Profile Photo">
-    </div>
-    <div class="header-content">
-      <div class="header-info">
-        <h1>LOKESH <span>M</span></h1>
-        <div class="sub-text">AI & Full-Stack Developer</div>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-item">
-          <span class="contact-icon">✉</span>
-          <a href="mailto:Lokesh152005@gmail.com">Lokesh152005@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">☎</span>
-          <span>+91 96558 65777</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">🌐</span>
-          <a href="https://lokeshloki.in">lokeshloki.in</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-          <span>Vellore, Tamil Nadu</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">gh</span>
-          <a href="https://github.com/lokeshloki65">github.com/lokeshloki65</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">in</span>
-          <a href="https://linkedin.com/in/lokesh-m-265b832b3">linkedin.com/in/lokesh-m</a>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- SUMMARY -->
-  <section>
-    <div class="section-title">Professional Summary</div>
-    <p class="summary-text">
-      Motivated B.Tech student in Artificial Intelligence & Data Science with hands-on experience in full-stack development, REST API integration, and database management. Passionate about building scalable, real-world AI-driven applications and eager to contribute to innovative development teams.
-    </p>
-  </section>
+<div class="resume-container">
+  <aside class="sidebar">
+    <div class="profile-section">
+      <div class="profile-img-container">
+        <img src="IMG-20251109-WA0011.jpg" alt="Lokesh M">
+      </div>
+      <div class="sidebar-name">LOKESH <span>M</span></div>
+      <div class="sidebar-sub">B.Tech · AI & Data Science</div>
+    </div>
 
-  <!-- SKILLS -->
-  <section>
-    <div class="section-title">Technical Expertise</div>
-    <div class="skills-container">
-      <div class="skill-row">
-        <span class="skill-label">AI/ML:</span>
-        <span class="skill-values">LLM APIs, RAG, Prompt Engineering, Agentic AI</span>
+    <div class="contact-box">
+      <div class="sidebar-title">Contact Details</div>
+      <div class="contact-item"><span>✉</span> <a href="mailto:Lokesh152005@gmail.com">Lokesh152005@gmail.com</a></div>
+      <div class="contact-item"><span>☎</span> +91 96558 65777</div>
+      <div class="contact-item"><span>📍</span> Vellore, Tamil Nadu</div>
+      <div class="contact-item"><span>🌐</span> <a href="https://lokeshloki.in">lokeshloki.in</a></div>
+      <div class="contact-item"><span>gh</span> <a href="https://github.com/lokeshloki65">github.com/lokeshloki65</a></div>
+      <div class="contact-item"><span>in</span> <a href="https://linkedin.com/in/lokesh-m-265b832b3">linkedin.com/lokesh-m</a></div>
+    </div>
+
+    <div class="skills-box">
+      <div class="sidebar-title">Technical Expertise</div>
+      
+      <div class="skill-group">
+        <span class="skill-label">AI / ML</span>
+        <ul class="skill-list">
+          <li>Large Language Models</li>
+          <li>LLM APIs (GPT, Gemini, Claude)</li>
+          <li>RAG & Prompt Engineering</li>
+          <li>Agentic AI</li>
+        </ul>
       </div>
-      <div class="skill-row">
-        <span class="skill-label">Backend:</span>
-        <span class="skill-values">Python, FastAPI, Flask, REST APIs</span>
+
+      <div class="skill-group">
+        <span class="skill-label">Languages & Frameworks</span>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>FastAPI & Flask</li>
+          <li>React & JavaScript</li>
+          <li>REST APIs</li>
+        </ul>
       </div>
-      <div class="skill-row">
-        <span class="skill-label">Frontend:</span>
-        <span class="skill-values">React, JavaScript, HTML5, CSS3</span>
+
+      <div class="skill-group">
+        <span class="skill-label">Tools & Cloud</span>
+        <ul class="skill-list">
+          <li>Git & GitHub</li>
+          <li>GCP, Vercel, Netlify</li>
+          <li>Render, Railway</li>
+          <li>ChatGPT & Gemini</li>
+        </ul>
       </div>
-      <div class="skill-row">
-        <span class="skill-label">Cloud/DB:</span>
-        <span class="skill-values">GCP, MongoDB, Firebase, Vercel</span>
+
+      <div class="skill-group">
+        <span class="skill-label">Database</span>
+        <ul class="skill-list">
+          <li>MongoDB</li>
+          <li>Firebase</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-label">Languages</span>
+        <ul class="skill-list">
+          <li>English</li>
+          <li>Tamil</li>
+          <li>Telugu</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-label">Soft Skills</span>
+        <ul class="skill-list">
+          <li>Adaptability & Teamwork</li>
+          <li>Communication</li>
+          <li>Time Management</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </aside>
 
-  <!-- EXPERIENCE -->
-  <section>
-    <div class="section-title">Work Experience</div>
-    <div class="item">
-      <div class="item-header">
-        <div>
-          <span class="item-title">Web Development Intern</span>
-          <br>
-          <span class="item-subtitle">Codetech IT Solutions</span>
-        </div>
-        <div class="item-meta">JUNE 2025 – AUG 2025</div>
-      </div>
-      <ul class="bullet-list">
-        <li>Built responsive web applications using HTML, CSS, and JavaScript, improving user experience.</li>
-        <li>Designed scalable features and collaborated in Agile sprints using Git version control.</li>
-      </ul>
+  <main class="main-content">
+    <div class="header-main">
+      <h1>LOKESH <span>M</span></h1>
+      <div class="subtitle">AI & Full-Stack Developer</div>
     </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section>
-    <div class="section-title">Selected Projects</div>
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">SV Academy – Quiz & Academic Platform</span>
-        <a href="https://quiz.lokeshloki.site" class="item-meta">VIEW PROJECT ↗</a>
-      </div>
-      <p class="item-desc">Built Admin/Student dashboards, online assessments, and real-time leaderboards. Enabled bulk data handling and live student engagement with automated performance analytics.</p>
+    <div class="section">
+      <div class="section-heading">Summary</div>
+      <p class="summary-p">
+        Motivated B.Tech student in Artificial Intelligence & Data Science with hands-on experience in full-stack development, REST API integration, and database management. Passionate about building scalable, real-world AI-driven applications and eager to contribute to innovative development teams.
+      </p>
     </div>
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">AI Agro-Assistant – Intelligent Agriculture</span>
-        <span class="item-meta">AI & DATA SCIENCE</span>
-      </div>
-      <p class="item-desc">AI-powered assistant with weather forecasting, crop disease detection, and crop planning. Integrated a buy/sell marketplace for farmers to enable smart agricultural decision-making.</p>
-    </div>
-  </section>
 
-  <!-- EDUCATION -->
-  <section>
-    <div class="section-title">Education</div>
-    <div class="edu-grid">
-      <div class="edu-box">
+    <div class="section">
+      <div class="section-heading">Education</div>
+      <div class="item-box">
         <div class="item-header">
-          <span class="item-title" style="font-size:9pt">B.Tech – AI & Data Science</span>
-          <span class="item-meta">2023 – 2027</span>
+          <div class="item-title">B.Tech - Artificial Intelligence & Data Science</div>
+          <div class="item-date">2023 – 2027</div>
         </div>
-        <div style="font-size:8pt; color:var(--muted)">SV Hi-Tech Eng. College</div>
-        <div style="font-size:9pt; color:var(--gold); font-weight:700; margin-top:1.5mm">CGPA: 8.2</div>
+        <div class="item-sub">Shree Venkateshwara Hi-Tech Engineering College | CGPA: 8.2/10</div>
       </div>
-      <div class="edu-box">
+      <div class="item-box">
         <div class="item-header">
-          <span class="item-title" style="font-size:9pt">HSC (Class XII)</span>
-          <span class="item-meta">2022 – 2023</span>
+          <div class="item-title">Higher Secondary Certificate (HSC)</div>
+          <div class="item-date">2022 – 2023</div>
         </div>
-        <div style="font-size:8pt; color:var(--muted)">Sri Saraswathi Vidyalaya</div>
-        <div style="font-size:9pt; color:var(--gold); font-weight:700; margin-top:1.5mm">Percentage: 62%</div>
+        <div class="item-sub">Sri Saraswathi Vidyalaya Matric Hr. Sec. School | Percentage: 62%</div>
       </div>
     </div>
-  </section>
 
-  <!-- CERTIFICATIONS -->
-  <section>
-    <div class="section-title">Hackathons & Certifications</div>
-    <div class="cert-grid">
-      <div class="cert-item">🏆 <b>First Prize</b> - AI for ALL Ideathon, NIT Trichy</div>
-      <div class="cert-item">● <b>Oracle Certified</b> Cloud Developer & AI Foundation</div>
-      <div class="cert-item">● <b>National Hackathon</b> - E-Commerce, SDIT Bangalore</div>
-      <div class="cert-item">● <b>National Hackathon</b> - Kongu Engineering College</div>
-      <div class="cert-item">● <b>Project Competition</b> - Velammal Institute, Chennai</div>
-      <div class="cert-item" style="color:var(--teal)">● React & Full-Stack Certifications</div>
+    <div class="section">
+      <div class="section-heading">Experience</div>
+      <div class="item-box">
+        <div class="item-header">
+          <div class="item-title">Web Development Intern</div>
+          <div class="item-date">June 2025 – Aug 2025</div>
+        </div>
+        <div class="item-sub">Codetech IT Solutions, Hyderabad, Telangana</div>
+        <ul class="bullet-list">
+          <li>Built responsive web applications using HTML, CSS, and JavaScript, improving user experience.</li>
+          <li>Designed scalable features and collaborated in Agile sprints using Git version control for project management.</li>
+        </ul>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    <span>Lokesh M – Resume</span>
-    <span>Generated to Professional Standards</span>
-    <span>2026</span>
-  </footer>
-</div>
+    <div class="section">
+      <div class="section-heading">Projects</div>
+      <div class="item-box">
+        <div class="item-header">
+          <div class="item-title">SV Academy - Online Quiz & Management Platform</div>
+          <div class="item-date">URL: quiz.lokeshloki.site</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Developed Admin/Student dashboards, online assessments, performance analytics, and real-time leaderboards.</li>
+          <li>Enabled bulk data handling, detailed reporting, and live student engagement in interactive sessions.</li>
+        </ul>
+      </div>
+      <div class="item-box">
+        <div class="item-header">
+          <div class="item-title">AI Agro-Assistant - Intelligent Agriculture Web App</div>
+        </div>
+        <ul class="bullet-list">
+          <li>AI-powered assistant providing real-time weather forecasting, crop disease detection, and crop planning.</li>
+          <li>Integrated a buy/sell platform for farmers enabling end-to-end smart agricultural decision-making.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-heading">Hackathons & Certifications</div>
+      <div class="cert-grid">
+        <div class="cert-item-full">
+          <strong>First Prize - AI for ALL Ideathon (NIT Trichy) 2026</strong>
+          Developed an AI-driven solution for real-world agricultural challenges using computer vision.
+        </div>
+        <div class="cert-item-full">
+          <strong>National Level Hackathon - Shree Devi Institute, Bangalore</strong>
+          Participated in a 24-hr intensive hackathon under the E-Commerce stream building scalable web solutions.
+        </div>
+        <div class="cert-item-full">
+          <strong>National Level Hackathon - Kongu Engineering College, Erode</strong>
+          Developed "Farm2Bag", an AI chatbot assistant for farmers during a 24-hr competition.
+        </div>
+        <div class="cert-item-full">
+          <strong>National Level Project Competition 2K25 - Velammal Institute</strong>
+          Recognized for the "AI-Agro Assistant" project focusing on sustainable agricultural innovation.
+        </div>
+        <div class="cert-item-full">
+          <strong>Oracle Certified Professional</strong>
+          Oracle APEX Cloud Developer | AI Association Foundation | AI Agent Studio.
+        </div>
+      </div>
+    </div>
+
+
+
 </body>
 </html>
