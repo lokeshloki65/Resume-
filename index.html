@@ -61,12 +61,13 @@
             overflow: hidden;
         }
 .profile-img-container img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: contain; /* அல்லது object-fit: contain; என்பதை முயற்சிக்கவும் */
-  object-position: top; /* தலையை மேலே பொசிஷன் செய்யும் */
-  background: #fff;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* புகைப்படத்தை மேல் பகுதிக்கு நகர்த்த இது உதவும் */
+    object-position: top center; 
+    background: #fff;
 }
         .sidebar-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: #fff; line-height: 1.1; }
         .sidebar-name span { color: var(--accent-gold); }
